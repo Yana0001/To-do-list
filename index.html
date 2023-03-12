@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To do list</title>
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <main>
+      <div class="list__container">
+        <section class="list">
+          <h1 class="title">MY TO DO LIST</h1>
+          <div class="list__box">
+            <input
+              class="list__input"
+              type="text"
+              placeholder="Write your task"
+            />
+            <button class="list__btn" type="button">Save</button>
+          </div>
+          <section class="list__task">
+            <div class="input-wrapper">
+              <input class="list__task__item-text" type="text" />
+              <ul class="list__wrapper">
+                <li class="li__item-first">
+                  <button class="btn__f btn" type="button">
+                    <svg class="list__task__svg-trash" width="20" height="20">
+                      <use href="./img/symbol-defs.svg#trash"></use>
+                    </svg>
+                  </button>
+                </li>
+                <li class="li__item-second">
+                  <button class="btn__s btn" type="button">
+                    <svg class="list__task__svg-pencil" width="20" height="20">
+                      <use href="./img/symbol-defs.svg#pencil"></use>
+                    </svg>
+                  </button>
+                </li>
+                <li class="li__item-third">
+                  <button class="btn__th btn" type="button">
+                    <svg class="list__task__svg-check" width="20" height="20">
+                      <use href="./img/symbol-defs.svg#check-circle"></use>
+                    </svg>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+      </div>
+    </main>
+    <script src="./main.js"></script>
+  </body>
+</html>
