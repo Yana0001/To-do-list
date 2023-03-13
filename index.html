@@ -12,6 +12,7 @@
       href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;900&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
@@ -19,18 +20,24 @@
       <div class="list__container">
         <section class="list">
           <h1 class="title">MY TO DO LIST</h1>
-          <div class="list__box">
+          <form id="form">
             <input
               class="list__input"
+              id="task-input"
               type="text"
               placeholder="Write your task"
             />
             <button class="list__btn" type="button">Save</button>
-          </div>
+          </form>
+
           <section class="list__task">
             <div class="input-wrapper">
-              <input class="list__task__item-text" type="text" />
-              <ul class="list__wrapper">
+              <input
+                class="list__task__item-text"
+                type="text"
+                value="Add new task"
+              />
+              <ul class="list__wrapper" id="tasksList">
                 <li class="li__item-first">
                   <button class="btn__f btn" type="button">
                     <svg class="list__task__svg-trash" width="20" height="20">
