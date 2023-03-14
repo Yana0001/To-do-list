@@ -186,3 +186,8 @@ body {
   display: inline-block;
   margin-right: 10px;
 }
+
+.task-title--done {
+  text-decoration: line-through;
+  color: #cdcdcd;
+}
