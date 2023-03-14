@@ -23,6 +23,7 @@ ul {
 svg {
   display: block;
   gap: 30px;
+  pointer-events: none;
 }
 
 button {
@@ -123,7 +124,10 @@ body {
   border-radius: 0px 10px 10px 0px;
 }
 
-.list__task__item-text {
+.list-group-item {
+  position: relative;
+  display: inline-block;
+  display: flex;
   padding: 16px;
   gap: 10px;
   width: 687px;
@@ -136,52 +140,36 @@ body {
   margin-bottom: 5px;
 }
 
-.input-wrapper {
-  position: relative;
+.list-group-item::before {
+  content: "";
   display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  margin-right: 10px;
 }
 
-.list__wrapper {
+.task-item__buttons {
   position: absolute;
   top: 18px;
   right: 16px;
 }
 
-.list__wrapper li {
+.task-item__buttons li {
   display: inline-block;
 }
 
-.list__wrapper button {
+.task-item__buttons button {
   background-color: transparent;
   border-style: none;
 }
 
-.btn__f {
-  fill: #ff6262;
+.btn-trash {
+  fill: #fe5050;
 }
 
-.btn__f:hover {
-  fill: #ff3e3e;
-}
-
-.btn__s {
-  fill: #ffe100;
-}
-
-.btn__s:hover {
-  fill: #ffc904;
-}
-
-.btn__th {
-  fill: #05ff00;
-}
-
-.btn__th:hover {
-  fill: #08e205;
-}
-
-.btn {
-  padding: 0;
+.btn-check {
+  fill: #07fd69;
 }
 
 .task-title {
@@ -196,14 +184,5 @@ body {
 
   color: #3e3549;
   display: inline-block;
-  margin-right: 10px;
-}
-
-.list__task__item-text::before {
-  content: "";
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background-size: contain;
   margin-right: 10px;
 }

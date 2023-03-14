@@ -30,7 +30,35 @@
             <button class="list__btn" type="button">Save</button>
           </form>
 
-          <section class="list__task">
+          <div class="list__task">
+            <ul id="tasksList" class="list-group list-group-flush">
+              <li
+                class="list-group-item d-flex justify-content-between task-item"
+              >
+                <span class="task-title">Купити молоко</span>
+                <div class="task-item__buttons">
+                  <button type="button" data-action="done" class="btn-action">
+                    <svg class="btn-trash" width="20" height="20">
+                      <use href="./img/symbol-defs.svg#trash"></use>
+                    </svg>
+                  </button>
+                  <button type="button" data-action="delete" class="btn-action">
+                    <svg class="btn-check" width="20" height="20">
+                      <use href="./img/symbol-defs.svg#check-circle"></use>
+                    </svg>
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="./main.js"></script>
+  </body>
+</html>
+
+<!-- <section class="list__task">
             <div class="input-wrapper">
               <input
                 class="list__task__item-text"
@@ -61,10 +89,4 @@
                 </li>
               </ul>
             </div>
-          </section>
-        </section>
-      </div>
-    </main>
-    <script src="./main.js"></script>
-  </body>
-</html>
+          </section> -->
