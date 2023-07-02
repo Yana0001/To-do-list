@@ -3,16 +3,12 @@ const taskInput = document.querySelector("#task-input");
 const tasksList = document.querySelector("#tasksList");
 const emptyList = document.querySelector("#emptyList");
 
-// add task
 submitBtn.addEventListener("click", addTask);
 
-// delete task
 tasksList.addEventListener("click", deleteTask);
 
-// done task
 tasksList.addEventListener("click", doneTask);
 
-// functions
 function addTask(event) {
   event.preventDefault();
 
@@ -23,7 +19,7 @@ function addTask(event) {
               <li
                 class="list-group-item d-flex justify-content-between task-item"
               >
-                <span class="task-title task-title--done">${taskText}</span>
+                <span class="task-title">${taskText}</span>
                 <div class="task-item__buttons">
                   <button type="button" data-action="delete" class="btn-action">
                     <svg class="btn-trash" width="20" height="20">
@@ -45,10 +41,9 @@ function addTask(event) {
 }
 
 function deleteTask(event) {
-  if (event.target.dataset.action === "delete") {
-    const parentNode = event.target.closest(".list-group-item");
-    parentNode.remove();
-  }
+  if (event.target.dataset.action !== "delete") return;
+  const parentNode = event.target.closest(".list-group-item");
+  parentNode.remove();
 }
 
 function doneTask(event) {

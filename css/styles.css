@@ -185,6 +185,7 @@ body {
   color: #3e3549;
   display: inline-block;
   margin-right: 10px;
+  text-decoration: none;
 }
 
 .task-title--done {
