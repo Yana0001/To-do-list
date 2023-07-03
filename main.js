@@ -5,6 +5,35 @@ const emptyList = document.querySelector("#emptyList");
 
 let tasks = [];
 
+if (localStorage.getItem("tasks")) {
+  tasks = JSON.parse(localStorage.getItem("tasks"));
+}
+
+tasks.forEach(function (task) {
+  const cssClass = task.done ? "task-title task-title--done" : "task-title";
+
+  const taskHTML = `
+              <li id="${task.id}"
+                class="list-group-item d-flex justify-content-between task-item"
+              >
+                <span class="${cssClass}">${task.text}</span>
+                <div class="task-item__buttons">
+                  <button type="button" data-action="delete" class="btn-action">
+                    <svg class="btn-trash" width="20" height="20">
+                      <use href="./img/symbol-defs.svg#trash"></use>
+                    </svg>
+                  </button>
+                  <button type="button" data-action="done" class="btn-action">
+                    <svg class="btn-check" width="20" height="20">
+                      <use href="./img/symbol-defs.svg#check-circle"></use>
+                    </svg>
+                  </button>
+                </div>
+              </li>`;
+
+  tasksList.insertAdjacentHTML("beforeend", taskHTML);
+});
+
 submitBtn.addEventListener("click", addTask);
 
 tasksList.addEventListener("click", deleteTask);
