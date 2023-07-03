@@ -24,8 +24,6 @@ function addTask(event) {
 
   tasks.push(newTask);
 
-  console.log(tasks);
-
   const cssClass = newTask.done ? "task-title task-title--done" : "task-title";
 
   const taskHTML = `
@@ -56,6 +54,13 @@ function addTask(event) {
 function deleteTask(event) {
   if (event.target.dataset.action !== "delete") return;
   const parentNode = event.target.closest(".list-group-item");
+
+  const id = Number(parentNode.id);
+
+  const index = tasks.findIndex((task) => task.id === id);
+
+  tasks.splice(index, 1);
+
   parentNode.remove();
 }
 
