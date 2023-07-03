@@ -24,6 +24,8 @@ function addTask(event) {
 
   tasks.push(newTask);
 
+  saveToLocalStorage();
+
   const cssClass = newTask.done ? "task-title task-title--done" : "task-title";
 
   const taskHTML = `
@@ -61,22 +63,26 @@ function deleteTask(event) {
 
   tasks.splice(index, 1);
 
+  saveToLocalStorage();
+
   parentNode.remove();
 }
 
 function doneTask(event) {
   if (event.target.dataset.action !== "done") return;
   const parentNode = event.target.closest(".list-group-item");
-
   const id = Number(parentNode.id);
-
   const task = tasks.find((task) => task.id === id);
 
   task.done = !task.done;
 
-  console.log(task);
+  saveToLocalStorage();
 
   const taskTitle = parentNode.querySelector(".task-title");
   taskTitle.classList.toggle("task-title--done");
   console.log(taskTitle);
+}
+
+function saveToLocalStorage() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 }
