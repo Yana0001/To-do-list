@@ -65,10 +65,18 @@ function deleteTask(event) {
 }
 
 function doneTask(event) {
-  if (event.target.dataset.action === "done") {
-    const parentNode = event.target.closest(".list-group-item");
-    const taskTitle = parentNode.querySelector(".task-title");
-    taskTitle.classList.toggle("task-title--done");
-    console.log(taskTitle);
-  }
+  if (event.target.dataset.action !== "done") return;
+  const parentNode = event.target.closest(".list-group-item");
+
+  const id = Number(parentNode.id);
+
+  const task = tasks.find((task) => task.id === id);
+
+  task.done = !task.done;
+
+  console.log(task);
+
+  const taskTitle = parentNode.querySelector(".task-title");
+  taskTitle.classList.toggle("task-title--done");
+  console.log(taskTitle);
 }
