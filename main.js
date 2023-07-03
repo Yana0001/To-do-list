@@ -3,6 +3,8 @@ const taskInput = document.querySelector("#task-input");
 const tasksList = document.querySelector("#tasksList");
 const emptyList = document.querySelector("#emptyList");
 
+let tasks = [];
+
 submitBtn.addEventListener("click", addTask);
 
 tasksList.addEventListener("click", deleteTask);
@@ -13,13 +15,24 @@ function addTask(event) {
   event.preventDefault();
 
   const taskText = taskInput.value;
-  console.log(taskText);
+
+  const newTask = {
+    id: Date.now(),
+    text: taskText,
+    done: false,
+  };
+
+  tasks.push(newTask);
+
+  console.log(tasks);
+
+  const cssClass = newTask.done ? "task-title task-title--done" : "task-title";
 
   const taskHTML = `
-              <li
+              <li id="${newTask.id}"
                 class="list-group-item d-flex justify-content-between task-item"
               >
-                <span class="task-title">${taskText}</span>
+                <span class="${cssClass}">${newTask.text}</span>
                 <div class="task-item__buttons">
                   <button type="button" data-action="delete" class="btn-action">
                     <svg class="btn-trash" width="20" height="20">
